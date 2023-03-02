@@ -1,0 +1,55 @@
+{
+	"folders": [
+		{
+			"name": "conf",
+			"path": "../projects/yocto/build-mp1/conf"
+		},
+		{
+			"name": "trusted",
+			"path": "../projects/yocto/build-mp1/tmp/deploy/images/stm32mp1/flashlayout_kernmod-custom/trusted"
+		},
+		{
+			"name": "meta-kernmod",
+			"path": "../projects/yocto/meta-kernmod"
+		},
+		{
+			"name": "device_tree",
+			"path": "device_tree"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"fs.h": "c",
+			"module.h": "c",
+			"kernel.h": "c",
+			"const.h": "c",
+			"sysinfo.h": "c",
+			"types.h": "c",
+			"*.tcc": "cpp",
+			"cctype": "cpp",
+			"clocale": "cpp",
+			"cmath": "cpp",
+			"cstdint": "cpp",
+			"cstdio": "cpp",
+			"cstdlib": "cpp",
+			"cwchar": "cpp",
+			"cwctype": "cpp",
+			"exception": "cpp",
+			"fstream": "cpp",
+			"initializer_list": "cpp",
+			"iosfwd": "cpp",
+			"iostream": "cpp",
+			"istream": "cpp",
+			"limits": "cpp",
+			"new": "cpp",
+			"ostream": "cpp",
+			"stdexcept": "cpp",
+			"streambuf": "cpp",
+			"string": "cpp",
+			"string_view": "cpp",
+			"system_error": "cpp",
+			"type_traits": "cpp",
+			"typeinfo": "cpp"
+		}
+	}
+}
