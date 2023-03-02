@@ -34,7 +34,9 @@ III. Build
 I. Adding the meta-kernmod layer to your build
 =================================================
 
-Run 'bitbake-layers add-layer meta-kernmod'
+1）git config --global user.email "pda761@mail.ru"
+2）git config --global user.name "pet-r-off"
+3）Run 'bitbake-layers add-layer meta-kernmod'
 
 II. Misc
 ========
@@ -85,7 +87,7 @@ cd layers/meta-st-stm32mp/conf/machine/include
 nano st-machine-common-stm32mp.inc
 
 Line #219
-Add -> STM32MP_ROOTFS_MAXSIZE_NAND ?= "${@bb.utils.contains('ENABLE_FLASHLAYOUT_CONFIG_FWUP', '1', '??   ??', '??    ??', d)}"
+Add -> STM32MP_ROOTFS_MAXSIZE_NAND ?= "${@bb.utils.contains('ENABLE_FLASHLAYOUT_CONFIG_FWUP', '1', '<ROOTFS_SIZE>', '<ROOTFS_SIZE>', d)}"
 
 
 III. Build
