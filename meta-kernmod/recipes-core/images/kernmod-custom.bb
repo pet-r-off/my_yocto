@@ -6,10 +6,9 @@ inherit core-image
 IMAGE_INSTALL = "packagegroup-core-boot ${CORE_IMAGE_EXTRA_INSTALL}"
 IMAGE_LINGUAS = " "
 
-# Set rootfs to 700MiB:
-IMAGE_OVERHEAD_FACTOR = "2.0"
-IMAGE_ROOTFS_SIZE = "716800"
-IMAGE_ROOTFS_EXTRA_SPACE:append = "${@bb.utils.contains("DISTRO_FEATURES", "systemd", " + 4096", "", d)}"
+# Set rootfs to 2GiB:
+IMAGE_OVERHEAD_FACTOR = "1.0"
+IMAGE_ROOTFS_SIZE = "2097152"
 
 
 # Tools:

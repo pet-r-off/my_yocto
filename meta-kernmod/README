@@ -33,9 +33,8 @@ III. Build
 
 I. Adding the meta-kernmod layer to your build
 =================================================
-1）git config --global user.email "pda761@mail.ru"
-2）git config --global user.name "pet-r-off"
-3）Run 'bitbake-layers add-layer meta-kernmod'
+
+Run 'bitbake-layers add-layer meta-kernmod'
 
 II. Misc
 ========
@@ -80,6 +79,14 @@ bblayers.conf ->
 /home/petroff/projects/yocto/meta-openembedded/meta-networking \
 /home/petroff/projects/yocto/meta-st-stm32mp \
 /home/petroff/projects/yocto/meta-kernmod \
+
+To increase IMAGE_ROOTFS_SIZE > 730MiB
+cd layers/meta-st-stm32mp/conf/machine/include
+nano st-machine-common-stm32mp.inc
+
+Line #219
+Add -> STM32MP_ROOTFS_MAXSIZE_NAND ?= "${@bb.utils.contains('ENABLE_FLASHLAYOUT_CONFIG_FWUP', '1', '??   ??', '??    ??', d)}"
+
 
 III. Build
 ==========
