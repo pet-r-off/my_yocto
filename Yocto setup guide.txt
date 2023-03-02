@@ -1,0 +1,42 @@
+
+
+1) sudo apt-get install -y gcc git make net-tools libncurses5-dev tftpd zlib1g-dev libssl-dev flex libsdl1.2-dev libglib2.0-dev zlib1g:i386 screen pax gzip gawk bison libselinux1 gnupg wget diffstat chrpath socat xterm autoconf libtool tar unzip texinfo zlib1g-dev gcc-multilib build-essential
+
+2) sudo apt-get install -y gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat cpio python python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping libsdl1.2-dev gdisk tree device-tree-compiler gcc-arm*
+
+3) sudo apt install -y gawk wget git diffstat unzip texinfo gcc build-essential chrpath socat cpio python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev pylint3 xterm python3-subunit mesa-common-dev zstd liblz4-tool
+3.1）sudo apt install gcc make gcc-arm-linux-gnueabi binutils-arm-linux-gnueabi
+
+4) nano ~/.bashrc -> alias python=python3
+
+5) git clone "poky"
+
+
+1) sudo apt-get install bc bison build-essential coccinelle \
+  device-tree-compiler dfu-util efitools flex gdisk graphviz imagemagick \
+  liblz4-tool libgnutls28-dev libguestfs-tools libncurses-dev \
+  libpython3-dev libsdl2-dev libssl-dev lz4 lzma lzma-alone openssl \
+  pkg-config python3 python3-asteval python3-coverage python3-filelock \
+  python3-pkg-resources python3-pycryptodome python3-pyelftools \
+  python3-pytest python3-pytest-xdist python3-sphinxcontrib.apidoc \
+  python3-sphinx-rtd-theme python3-subunit python3-testtools \
+  python3-virtualenv swig uuid-dev -> for uboot gcc
+
+
+
+
+
+ Extra) QT -> sudo apt install qt5-default
+	 sudo apt install qtcreator
+
+
+	CLION ->sudo snap install clion --classic
+				CMAKE -> cmake --classic
+				VSCODE -> code --classic
+
+
+	SFML -> sudo apt-get install libsfml-dev 
+
+	SDL -> sudo apt install libsdl2-dev -y
+
+	sudo apt-get install gnome-tweak-tool
