@@ -1,0 +1,87 @@
+This README file contains information on the contents of the meta-kernmod layer.
+
+Please see the corresponding sections below for details.
+
+Dependencies
+============
+
+  URI: <first dependency>
+  branch: <branch name>
+
+  URI: <second dependency>
+  branch: <branch name>
+
+  .
+  .
+  .
+
+Patches
+=======
+
+Please submit any patches against the meta-kernmod layer to the xxxx mailing list (xxxx@zzzz.org)
+and cc: the maintainer:
+
+Maintainer: XXX YYYYYY <xxx.yyyyyy@zzzzz.com>
+
+Table of Contents
+=================
+
+I. Adding the meta-kernmod layer to your build
+II. Misc
+III. Build
+
+
+I. Adding the meta-kernmod layer to your build
+=================================================
+1）git config --global user.email "pda761@mail.ru"
+2）git config --global user.name "pet-r-off"
+3）Run 'bitbake-layers add-layer meta-kernmod'
+
+II. Misc
+========
+Add to local.conf ->
+
+MACHINE ?= "stm32mp1"
+
+XZ_DEFAULTS = "--memlimit=1024MiB"
+
+DISTRO_FEATURES:append = " systemd"
+DISTRO_FEATURES_BACKFILL_CONSIDERED += "sysvinit"
+VIRTUAL-RUNTIME_init_manager = "systemd"
+VIRTUAL-RUNTIME_initscripts = "systemd-compat-units"
+
+PACKAGE_CLASSES = "package_deb"
+EXTRA_IMAGE_FEATURES += "package-management"
+CORE_IMAGE_EXTRA_INSTALL += "apt"
+
+
+P.S. Seems kirkstone branch bug while adding rootfs passw ->
+EXTRA_IMAGE_FEATURES += "debug-tweaks" 
+
+
+P.S. Only for nodejs.bb ->
+PARALLEL_MAKE = "-j x"
+BB_NUMBER_THREADS = "y"
+
+sudo swapon -s
+sudo swapoff -v /swapfile
+sudo swapon -s
+sudo rm -rf /swapfile
+sudo fallocate -l 32G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+
+
+bblayers.conf ->
+
+/home/petroff/projects/yocto/meta-openembedded/meta-oe \
+/home/petroff/projects/yocto/meta-openembedded/meta-python \
+/home/petroff/projects/yocto/meta-openembedded/meta-networking \
+/home/petroff/projects/yocto/meta-st-stm32mp \
+/home/petroff/projects/yocto/meta-kernmod \
+
+III. Build
+==========
+
+Run 'bitbake meta-kernmod'

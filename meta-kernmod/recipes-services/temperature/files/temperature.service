@@ -1,0 +1,10 @@
+[Unit]
+Description=BMP180 to LCD1602 service by pet_r_off
+
+[Service]
+User=root
+WorkingDirectory=/home/root/
+ExecStart=/usr/bin/python3 /home/root/bmplcd.py
+
+[Install]
+WantedBy=multi-user.target
