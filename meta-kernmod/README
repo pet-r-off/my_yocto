@@ -1,46 +1,24 @@
 This README file contains information on the contents of the meta-kernmod layer.
 
-Please see the corresponding sections below for details.
 
-Dependencies
-============
-
-  URI: <first dependency>
-  branch: <branch name>
-
-  URI: <second dependency>
-  branch: <branch name>
-
-  .
-  .
-  .
-
-Patches
-=======
-
-Please submit any patches against the meta-kernmod layer to the xxxx mailing list (xxxx@zzzz.org)
-and cc: the maintainer:
-
-Maintainer: XXX YYYYYY <xxx.yyyyyy@zzzzz.com>
-
-Table of Contents
-=================
-
-I. Adding the meta-kernmod layer to your build
-II. Misc
-III. Build
 
 
 I. Adding the meta-kernmod layer to your build
 =================================================
 
-1）git config --global user.email "pda761@mail.ru"
-2）git config --global user.name "pet-r-off"
-3）Run 'bitbake-layers add-layer meta-kernmod'
+
+1. git config --global user.email "pda761@mail.ru"
+2. git config --global user.name "pet-r-off"
+3. Run 'bitbake-layers add-layer meta-kernmod'
+
+
+
 
 II. Misc
 ========
-Add to local.conf ->
+
+
+II.1 Add to local.conf ->
 
 MACHINE ?= "stm32mp1"
 
@@ -55,12 +33,13 @@ PACKAGE_CLASSES = "package_deb"
 EXTRA_IMAGE_FEATURES += "package-management"
 CORE_IMAGE_EXTRA_INSTALL += "apt"
 
-
-P.S. Seems kirkstone branch bug while adding rootfs passw ->
-EXTRA_IMAGE_FEATURES += "debug-tweaks" 
+EXTRA_IMAGE_FEATURES += "debug-tweaks" -> P.S. Seems kirkstone branch bug while adding rootfs passw
 
 
-P.S. Only for nodejs.bb ->
+
+II.2 P.S. Only for nodejs.bb ->
+
+
 PARALLEL_MAKE = "-j x"
 BB_NUMBER_THREADS = "y"
 
@@ -73,8 +52,12 @@ sudo chmod 600 /swapfile
 sudo mkswap /swapfile
 sudo swapon /swapfile
 
+Or just run setup_nodejs.sh
 
-bblayers.conf ->
+
+
+II.3 bblayers.conf ->
+
 
 /home/petroff/projects/yocto/meta-openembedded/meta-oe \
 /home/petroff/projects/yocto/meta-openembedded/meta-python \
@@ -82,7 +65,11 @@ bblayers.conf ->
 /home/petroff/projects/yocto/meta-st-stm32mp \
 /home/petroff/projects/yocto/meta-kernmod \
 
-To increase IMAGE_ROOTFS_SIZE > 730MiB
+
+
+II.4 To increase IMAGE_ROOTFS_SIZE > 730MiB ->
+
+
 cd layers/meta-st-stm32mp/conf/machine/include
 nano st-machine-common-stm32mp.inc
 
@@ -90,7 +77,10 @@ Line #219
 Add -> STM32MP_ROOTFS_MAXSIZE_NAND ?= "${@bb.utils.contains('ENABLE_FLASHLAYOUT_CONFIG_FWUP', '1', '<ROOTFS_SIZE>', '<ROOTFS_SIZE>', d)}"
 
 
+
+
 III. Build
 ==========
+
 
 Run 'bitbake meta-kernmod'
