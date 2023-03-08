@@ -23,6 +23,7 @@ sudo apt install -y gawk wget git diffstat unzip texinfo gcc build-essential chr
 
 
 echo "alias python=python3" >> ~/.bashrc
+python --version
 source ~/.bashrc
 python --version
 
@@ -48,4 +49,5 @@ cp -a ~/Documents/my_yocto/meta-kernmod ~/projects/yocto/
 git config --global user.email "pda761@mail.ru"
 git config --global user.name "pet-r-off"
 
+reboot
 #source ./poky/oe-init-build-env build-mp1
