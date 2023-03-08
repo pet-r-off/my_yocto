@@ -40,7 +40,6 @@ cd ~/projects/yocto/
 git clone -b kirkstone https://github.com/STMicroelectronics/meta-st-stm32mp
 git clone -b kirkstone https://github.com/yoctoproject/poky
 git clone -b kirkstone https://github.com/openembedded/meta-openembedded
-git clone https://github.com/pet-r-off/my_yocto ~/Documents/
 
 
 # Prepare environment
