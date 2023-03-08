@@ -16,7 +16,7 @@ sudo apt-get install -y gawk wget git-core diffstat unzip texinfo gcc-multilib b
 			chrpath socat cpio python python3 python3-pip python3-pexpect xz-utils \
 			debianutils iputils-ping libsdl1.2-dev gdisk tree device-tree-compiler
 
-sudo apt install -y gawk wget git diffstat unzip texinfo gcc build-essential chrpath socat cpio\
+sudo apt install -y gawk wget git diffstat unzip texinfo gcc build-essential chrpath socat cpio \
 			python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping \
 			python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev pylint3 xterm \
 			python3-subunit mesa-common-dev zstd liblz4-tool
@@ -41,13 +41,12 @@ cd ~/projects/yocto/
 git clone -b kirkstone https://github.com/STMicroelectronics/meta-st-stm32mp
 git clone -b kirkstone https://github.com/yoctoproject/poky
 git clone -b kirkstone https://github.com/openembedded/meta-openembedded
+git clone -b kirkstone https://github.com/agherzan/meta-raspberrypi
 
 
 # Prepare environment
 cp -a ~/Documents/my_yocto/meta-kernmod ~/projects/yocto/
 
-git config --global user.email "pda761@mail.ru"
-git config --global user.name "pet-r-off"
+git config --global user.email "pda761@mail.ru" && git config --global user.name "pet-r-off"
 
 reboot
-#source ./poky/oe-init-build-env build-mp1
