@@ -8,13 +8,9 @@
 			"name": "trusted",
 			"path": "../projects/yocto/build-mp1/tmp/deploy/images/stm32mp1/flashlayout_kernmod-custom/trusted"
 		},
-		{
-			"name": "meta-kernmod",
-			"path": "../projects/yocto/meta-kernmod"
-		},
-		{
-			"name": "device_tree",
-			"path": "device_tree"
+		{	
+			"name": "my_yocto",
+			"path": "/home/petroff/Documents/my_yocto/"
 		}
 	],
 	"settings": {

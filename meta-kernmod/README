@@ -63,7 +63,7 @@ II.3 bblayers.conf ->
 /home/petroff/projects/yocto/meta-openembedded/meta-python \
 /home/petroff/projects/yocto/meta-openembedded/meta-networking \
 /home/petroff/projects/yocto/meta-st-stm32mp \
-/home/petroff/projects/yocto/meta-kernmod \
+/home/petroff/Documents/my_yocto/meta-kernmod \
 
 
 

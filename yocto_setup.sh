@@ -29,6 +29,13 @@ python --version
 
 
 sudo snap install code --classic
+code --install-extension microhobby.bitbake2
+code --install-extension ms-python.python
+code --install-extension ms-python.vscode-pylance
+code --install-extension ms-vscode.cpptools
+code --install-extension NicScott.dark-bash
+code --install-extension PKief.material-icon-theme
+code --install-extension plorefice.devicetree
 
 
 # Create project dir
@@ -45,8 +52,6 @@ git clone -b kirkstone https://github.com/agherzan/meta-raspberrypi
 
 
 # Prepare environment
-cp -a ~/Documents/my_yocto/meta-kernmod ~/projects/yocto/
-
 git config --global user.email "pda761@mail.ru" && git config --global user.name "pet-r-off"
 
 reboot
