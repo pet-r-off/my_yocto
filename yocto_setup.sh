@@ -46,6 +46,7 @@ cd ~/projects/yocto/
 
 # Clone git repos
 git clone -b kirkstone https://github.com/STMicroelectronics/meta-st-stm32mp
+git clone -b kirkstone https://github.com/STMicroelectronics/meta-st-openstlinux
 git clone -b kirkstone https://github.com/yoctoproject/poky
 git clone -b kirkstone https://github.com/openembedded/meta-openembedded
 git clone -b kirkstone https://github.com/agherzan/meta-raspberrypi
