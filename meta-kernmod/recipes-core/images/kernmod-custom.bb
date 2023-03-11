@@ -12,10 +12,7 @@ IMAGE_ROOTFS_SIZE = "2097152"
 
 
 # Tools:
-ZIGBEE2MQTT = "nodejs nodejs-npm make git gcc g++ bash curl lsb-release ca-certificates"
-MOSQUITTO = "libmosquitto1 libmosquittopp1 mosquitto mosquitto-clients"
-
-IMAGE_INSTALL:append = " i2c-tools apt apt-openstlinux ${ZIGBEE2MQTT} ${MOSQUITTO}"
+IMAGE_INSTALL:append = " i2c-tools zigbee2mqtt"
 
 
 
