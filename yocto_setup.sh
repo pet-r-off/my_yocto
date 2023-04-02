@@ -36,6 +36,11 @@ code --install-extension ms-vscode.cpptools
 code --install-extension NicScott.dark-bash
 code --install-extension PKief.material-icon-theme
 code --install-extension plorefice.devicetree
+code --install-extension adpyke.codesnap
+code --install-extension bmalehorn.shell-syntax
+code --install-extension castello-dev.bash-snippets
+code --install-extension designbyajay.bash-cli-snippets
+code --install-extension ms-vscode.makefile-tools
 
 
 # Create project dir
@@ -50,7 +55,7 @@ git clone -b kirkstone https://github.com/STMicroelectronics/meta-st-openstlinux
 git clone -b kirkstone https://github.com/yoctoproject/poky
 git clone -b kirkstone https://github.com/openembedded/meta-openembedded
 git clone -b kirkstone https://github.com/agherzan/meta-raspberrypi
-
+git clone -b kirkstone https://github.com/meta-qt5/meta-qt5
 
 # Prepare environment
 git config --global user.email "pda761@mail.ru" && git config --global user.name "pet-r-off"
