@@ -12,7 +12,7 @@ IMAGE_ROOTFS_SIZE = "2097152"
 
 
 # Tools:
-IMAGE_INSTALL:append = " i2c-tools zigbee2mqtt"
+IMAGE_INSTALL:append = " i2c-tools"
 
 
 
