@@ -59,11 +59,23 @@ Or just run setup_nodejs.sh
 II.3 bblayers.conf ->
 
 
-/home/petroff/projects/yocto/meta-openembedded/meta-oe \
-/home/petroff/projects/yocto/meta-openembedded/meta-python \
-/home/petroff/projects/yocto/meta-openembedded/meta-networking \
-/home/petroff/projects/yocto/meta-st-stm32mp \
-/home/petroff/Documents/my_yocto/meta-kernmod \
+  /home/petroff/projects/yocto/poky/meta \
+  /home/petroff/projects/yocto/poky/meta-poky \
+  /home/petroff/projects/yocto/poky/meta-yocto-bsp \
+  /home/petroff/projects/yocto/meta-openembedded/meta-filesystems \
+  /home/petroff/projects/yocto/meta-openembedded/meta-gnome \
+  /home/petroff/projects/yocto/meta-openembedded/meta-initramfs \
+  /home/petroff/projects/yocto/meta-openembedded/meta-multimedia \
+  /home/petroff/projects/yocto/meta-openembedded/meta-networking \
+  /home/petroff/projects/yocto/meta-openembedded/meta-oe \
+  /home/petroff/projects/yocto/meta-openembedded/meta-perl \
+  /home/petroff/projects/yocto/meta-openembedded/meta-python \
+  /home/petroff/projects/yocto/meta-openembedded/meta-webserver \
+  /home/petroff/projects/yocto/meta-openembedded/meta-xfce \
+  /home/petroff/projects/yocto/meta-st-stm32mp \
+  /home/petroff/projects/yocto/meta-st-openstlinux \
+  /home/petroff/Documents/my_yocto/meta-qt5 \ 
+  /home/petroff/Documents/my_yocto/meta-kernmod \
 
 
 
