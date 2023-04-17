@@ -1,0 +1,193 @@
+diff --git a/running_pi1.dts b/running_pi2.dts
+index e82b5de..1d82301 100644
+--- a/running_pi1.dts
++++ b/running_pi2.dts
+@@ -99,6 +99,16 @@
+ 		interrupts = <0x09 0x04>;
+ 	};
+ 
++	reg_bridge@0 {
++		compatible = "regulator-fixed";
++		enable-active-high;
++		gpio = <0x9c 0x00 0x00>;
++		phandle = <0x99>;
++		vin-supply = <0x9c>;
++		reg = <0x00>;
++		regulator-name = "bridge_reg";
++	};
++
+ 	cam0_regulator {
+ 		compatible = "regulator-fixed";
+ 		enable-active-high;
+@@ -107,6 +117,22 @@
+ 		regulator-name = "cam0-reg";
+ 	};
+ 
++	panel_disp1@0 {
++		compatible = "raspberrypi,7inch-dsi\0simple-panel";
++		phandle = <0x9e>;
++		reg = <0x00>;
++		backlight = <0x9c>;
++		power-supply = <0x9c>;
++
++		port {
++
++			endpoint {
++				remote-endpoint = <0x9d>;
++				phandle = <0x9b>;
++			};
++		};
++	};
++
+ 	system {
+ 		linux,serial = <0x00 0x4c159e7>;
+ 		linux,revision = <0xa02082>;
+@@ -1050,7 +1076,7 @@
+ 		i2c0mux {
+ 			compatible = "i2c-mux-pinctrl";
+ 			pinctrl-1 = <0x1e>;
+-			status = "disabled";
++			status = "okay";
+ 			#address-cells = <0x01>;
+ 			i2c-parent = <0x1c>;
+ 			#size-cells = <0x00>;
+@@ -1066,10 +1092,31 @@
+ 			};
+ 
+ 			i2c@1 {
++				status = "okay";
+ 				#address-cells = <0x01>;
+ 				#size-cells = <0x00>;
+ 				phandle = <0x88>;
+ 				reg = <0x01>;
++
++				reg_display@45 {
++					compatible = "raspberrypi,7inch-touchscreen-panel-regulator";
++					gpio-controller;
++					phandle = <0x9c>;
++					reg = <0x45>;
++					#gpio-cells = <0x02>;
++				};
++
++				ts@38 {
++					touchscreen-size-y = <0x1e0>;
++					reset-gpio = <0x9c 0x01 0x01>;
++					compatible = "edt,edt-ft5506";
++					touchscreen-inverted-y;
++					vcc-supply = <0x9c>;
++					touchscreen-size-x = <0x320>;
++					phandle = <0x97>;
++					reg = <0x38>;
++					touchscreen-inverted-x;
++				};
+ 			};
+ 		};
+ 
+@@ -1135,7 +1182,7 @@
+ 			compatible = "brcm,bcm2835-dsi1";
+ 			clocks = <0x08 0x23 0x08 0x30 0x08 0x32>;
+ 			clock-names = "phy\0escape\0pixel";
+-			status = "disabled";
++			status = "okay";
+ 			#address-cells = <0x01>;
+ 			interrupts = <0x02 0x0c>;
+ 			#size-cells = <0x00>;
+@@ -1143,6 +1190,43 @@
+ 			phandle = <0x05>;
+ 			reg = <0x7e700000 0x8c>;
+ 			clock-output-names = "dsi1_byte\0dsi1_ddr2\0dsi1_ddr";
++
++			port {
++
++				endpoint {
++					remote-endpoint = <0x98>;
++					phandle = <0x9a>;
++				};
++			};
++
++			bridge@0 {
++				compatible = "toshiba,tc358762";
++				vddc-supply = <0x99>;
++				reg = <0x00>;
++
++				ports {
++					#address-cells = <0x01>;
++					#size-cells = <0x00>;
++
++					port@1 {
++						reg = <0x01>;
++
++						endpoint {
++							remote-endpoint = <0x9b>;
++							phandle = <0x9d>;
++						};
++					};
++
++					port@0 {
++						reg = <0x00>;
++
++						endpoint {
++							remote-endpoint = <0x9a>;
++							phandle = <0x98>;
++						};
++					};
++				};
++			};
+ 		};
+ 
+ 		axiperf {
+@@ -1161,7 +1245,7 @@
+ 		i2c@7e205000 {
+ 			compatible = "brcm,bcm2835-i2c";
+ 			clocks = <0x08 0x14>;
+-			status = "disabled";
++			status = "okay";
+ 			#address-cells = <0x01>;
+ 			interrupts = <0x02 0x15>;
+ 			#size-cells = <0x00>;
+@@ -1330,7 +1414,7 @@
+ 	};
+ 
+ 	aliases {
+-		display0 = "/chosen/framebuffer@3e402000";
++		display0 = "/chosen/framebuffer@3ea81000";
+ 		intc = "/soc/interrupt-controller@7e00b200";
+ 		i2c10 = "/soc/i2c0mux/i2c@1";
+ 		spi2 = "/soc/spi@7e2150c0";
+@@ -1378,24 +1462,24 @@
+ 		phandle = <0x34>;
+ 		os_prefix;
+ 		overlay_prefix = [6f 76 65 72 6c 61 79 73 2f];
+-		kaslr-seed = <0x6ab3d813 0x60a12444>;
+-
+-		framebuffer@3e402000 {
+-			compatible = "simple-framebuffer";
+-			width = <0x780>;
+-			stride = <0x1e00>;
+-			status = "okay";
+-			reg = <0x3e402000 0x7f8000>;
+-			format = "a8r8g8b8";
+-			height = <0x438>;
+-		};
++		kaslr-seed = <0xba619308 0x84678d86>;
+ 
+ 		bootloader {
+ 			boot-mode = <0x01>;
+ 			partition = <0x00>;
+-			rsts = <0x1020>;
++			rsts = <0x1000>;
+ 			tryboot = <0x00>;
+ 		};
++
++		framebuffer@3ea81000 {
++			compatible = "simple-framebuffer";
++			width = <0x320>;
++			stride = <0xc80>;
++			status = "okay";
++			reg = <0x3ea81000 0x177000>;
++			format = "a8r8g8b8";
++			height = <0x1e0>;
++		};
+ 	};
+ 
+ 	thermal-zones {
